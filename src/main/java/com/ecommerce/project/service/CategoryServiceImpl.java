@@ -39,18 +39,18 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public boolean deleteCategory(Long categoryId) {
-//        List<Category> categories = categoryRepository.findAll();
-//        Category category =
-//                categories.stream().filter(c -> c.getCategoryId().equals(categoryId)).findFirst().orElse(null);
+        List<Category> categories = categoryRepository.findAll();
+        Category deleteCategory =
+                categories.stream().filter(c -> c.getCategoryId().equals(categoryId)).findFirst().orElse(null);
 
 //         Throw exception directly Inline instead of Boolean true or false
 //        categories.stream().filter(c -> c.getCategoryId().equals(categoryId)).findFirst()
 //                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
 //         Check if categoryId is equal to given categoryId
 
-        Optional<Category> deleteCategoryOpt = categoryRepository.findById(categoryId);
+//        Optional<Category> deleteCategoryOpt = categoryRepository.findById(categoryId);
 
-        Category deleteCategory = deleteCategoryOpt.orElseThrow(null);
+//        Category deleteCategory = deleteCategoryOpt.orElseThrow(()-> new ResponseStatusException( HttpStatus.NOT_FOUND));
 
         if (deleteCategory == null){
             return false;
